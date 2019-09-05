@@ -7,3 +7,4 @@ import sys
 
 # 静态资源路径
 STATIC_PATH = os.path.join(sys.path[0], 'static')
+TEMPLATE_PATH = os.path.join(sys.path[0], 'static/template')
