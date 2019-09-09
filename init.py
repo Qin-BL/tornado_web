@@ -26,8 +26,8 @@ class Application(web.Application):
             'compress_response': True,  # 如果为 True, 以文本格式的响应 将被自动压缩
             'ui_modules ': modules,
             'ui_methods ': methods,
-            'cookie_secret': base64.b64encode(uuid.uuid4().bytes + uuid.uuid4().bytes),  # 个人感觉没用
-            'login_url': '/',
+            'cookie_secret': base64.b64encode(uuid.uuid4().bytes + uuid.uuid4().bytes),
+            'login_url': '/login',
             'xsrf_cookies': True,  # 如果true, 跨站请求伪造(防护) 将被开启
             'static_path': STATIC_PATH,
             'template_path': TEMPLATE_PATH,
