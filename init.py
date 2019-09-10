@@ -16,7 +16,9 @@ define('port', default=8888)
 define('debug', default=False)
 options.parse_command_line()
 
-urls = []
+urls = [
+    (r'/index', 'handler.index.IndexHandler'),
+]
 
 
 class Application(web.Application):
