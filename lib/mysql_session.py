@@ -8,6 +8,8 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session
 from tornado.options import options
+import pymysql
+pymysql.install_as_MySQLdb()
 
 
 engine = create_engine(
