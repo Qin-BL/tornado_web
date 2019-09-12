@@ -7,7 +7,6 @@ import tornado.ioloop
 from tornado.httpserver import HTTPServer
 from tornado.options import options, define
 import logging
-from settings import *
 from ui import modules, methods
 import base64
 import uuid
@@ -15,6 +14,11 @@ import uuid
 define('port', default=8888)
 define('debug', default=False)
 options.parse_command_line()
+
+if options.debug:
+    from settings_debug import *
+else:
+    from settings import *
 
 urls = [
     (r'/index', 'handler.index.IndexHandler'),
@@ -28,7 +32,7 @@ class Application(web.Application):
             'compress_response': True,  # 如果为 True, 以文本格式的响应 将被自动压缩
             'ui_modules ': modules,
             'ui_methods ': methods,
-            'cookie_secret': base64.b64encode(uuid.uuid4().bytes + uuid.uuid4().bytes),
+            'cookie_secret': base64.b64encode(uuid.uuid4().bytes + uuid.uuid4().bytes),  # 防止cookie被篡改
             'login_url': '/login',
             'xsrf_cookies': True,  # 如果true, 跨站请求伪造(防护) 将被开启
             'static_path': STATIC_PATH,
