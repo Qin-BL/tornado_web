@@ -1,6 +1,5 @@
 
 from handler import BaseHandler
-from control import ctrl
 
 
 class IndexHandler(BaseHandler):
