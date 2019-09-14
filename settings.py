@@ -3,6 +3,7 @@
 
 import os
 import sys
+import options
 
 
 # 静态资源路径
@@ -15,3 +16,15 @@ DEFAULT_REDIS = {
     'port': 6379,
     'db': 0
 }
+# 默认mysql
+mysql_master = {
+    'user': 'user',
+    'password': 'password',
+    'host': '127.0.0.1',
+    'port': 3306,
+    'db': 'test'
+}
+
+# 请放在结尾
+if options.debug:
+    from settings_debug import *
