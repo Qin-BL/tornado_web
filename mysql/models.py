@@ -1,6 +1,7 @@
 
 from sqlalchemy import Column, Integer, String, DateTime, Boolean, TIMESTAMP, func, VARCHAR
 from sqlalchemy.ext.declarative import declarative_base
+from lib.mysql_session import engine
 
 
 class BaseModel(object):
@@ -26,4 +27,4 @@ class Test(Base):
 
 
 # 创建表
-Base.metadata.create_all()
+Base.metadata.create_all(engine)
