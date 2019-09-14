@@ -3,7 +3,7 @@
 
 import os
 import sys
-import options
+from tornado.options import options
 
 
 # 静态资源路径
