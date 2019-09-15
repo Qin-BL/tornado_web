@@ -15,7 +15,7 @@ pymysql.install_as_MySQLdb()
 
 engine = create_engine(
         'mysql://{user}:{password}@{host}:{port}/{db}?charset=utf8'.format(**mysql_master),
-        echo=options.debug,  # 为 True 时候会把sql语句打印出来
+        echo=options.debug,  # 为 True 时候会把sql语句打印出来，打出sql会降低性能
         max_overflow=0,  # 超过连接池大小外最多创建的连接
         pool_size=100,  # 连接池大小
         pool_timeout=30,  # 池中没有线程最多等待的时间，否则报错
