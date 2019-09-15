@@ -10,8 +10,8 @@ def model_to_dict(func):
 def model_to_list(func):
     def wrapper(*args, **kwargs):
         res = func(*args, **kwargs)
-        for i in res:
-            i.__dict__
-            del i['_sa_instance_state']
+        for i in range(len(res)):
+            res[i] = res[i].__dict__
+            del res[i]['_sa_instance_state']
         return res
     return wrapper
