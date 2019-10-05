@@ -19,7 +19,7 @@ Base = declarative_base(cls=BaseModel)
 
 class Test(Base):
 
-    __talbename__ = 'test'
+    __tablename__ = 'test'
 
     id = Column(Integer, primary_key=True)
     content = Column(VARCHAR(128), nullable=True, default='hello world')
