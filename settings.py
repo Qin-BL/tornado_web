@@ -24,7 +24,8 @@ mysql_master = {
     'port': 3306,
     'db': 'test'
 }
-
+# ES
+ES_CONF = ["http://10.10.33.222:9200"]
 # 请放在结尾
 if options.debug:
     from settings_debug import *
