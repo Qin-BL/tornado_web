@@ -2,7 +2,6 @@
 
 from tornado import web
 import json
-from settings import COOKIES
 import re
 
 
@@ -45,7 +44,7 @@ class BaseHandler(web.RequestHandler):
 
     @property
     def username(self):
-        username = self.get_secure_cookie(COOKIES)
+        username = self.get_secure_cookie("username")
         return username
 
     def get_current_user(self):
@@ -55,11 +54,11 @@ class BaseHandler(web.RequestHandler):
             return
         return username.decode()
 
-    def _login(self, username):
-        self.set_secure_cookie(COOKIES, username, expires_days=1)
+    def _login(self):
+        self.set_secure_cookie("username", expires_days=1)
 
     def _logout(self):
-        self.clear_cookie(COOKIES)
+        self.clear_cookie("username")
 
     def get_real_ip(self):
         req_headers = self.request.headers
